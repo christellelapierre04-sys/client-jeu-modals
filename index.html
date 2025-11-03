@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Course des Modals — Jeu</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <div class="brand">Course des Modals — Thème Voyage</div>
+      <div class="controls">
+        <button id="muteBtn">Musique OFF</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="lobby" class="card">
+        <h2>Lobby</h2>
+        <div class="flex-row">
+          <div class="panel">
+            <button id="createBtn" class="primary">Créer une salle (enseignant)</button>
+            <div id="createdRoom" class="muted">Aucune salle créée</div>
+            <div id="hostControls" class="muted hidden">
+              <button id="startBtn" class="primary">Démarrer la partie</button>
+            </div>
+          </div>
+          <div class="panel">
+            <input id="nameInput" placeholder="Votre prénom" />
+            <input id="roomInput" placeholder="Code de la salle" />
+            <div class="flex-row">
+              <button id="joinBtn" class="primary">Rejoindre</button>
+              <button id="demoBtn" class="secondary">Mode démo local</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card small">
+          <h3>Joueurs dans la salle</h3>
+          <ul id="playersList" class="players"></ul>
+        </div>
+
+        <div class="card small">
+          <label>Niveau</label>
+          <select id="levelSelect">
+            <option value="easy">Débutant (deduction)</option>
+            <option value="medium">Intermédiaire (speculation)</option>
+            <option value="hard">Avancé (past modals)</option>
+          </select>
+        </div>
+      </section>
+
+      <section id="game" class="card hidden">
+        <div class="game-header">
+          <div id="statusInfo">En attente...</div>
+          <div>
+            <span id="playerNameLabel"></span>
+            <button id="useBoostBtn" class="accent">Utiliser la flamme (supprimer un choix)</button>
+          </div>
+        </div>
+
+        <div id="track" class="track"></div>
+
+        <div class="card question-card">
+          <div class="question-meta">Temps restant : <span id="timerDisplay">30</span>s</div>
+          <div id="questionText" class="question-text">En attente...</div>
+          <div id="choices" class="choices"></div>
+        </div>
+      </section>
+
+      <section id="finished" class="card hidden">
+        <h2>Fin de la partie</h2>
+        <div id="podium"></div>
+        <button id="replayBtn" class="primary">Rejouer</button>
+        <button id="backBtn" class="secondary">Retour au lobby</button>
+      </section>
+    </main>
+
+    <footer class="footer muted">Interface en français — Questions en anglais (modals)</footer>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="musique.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

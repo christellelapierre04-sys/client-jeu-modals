@@ -1,0 +1,1 @@
+Déployez ce dossier comme site statique. Vérifiez que 'musique.mp3' existe (remplacer si nécessaire).
