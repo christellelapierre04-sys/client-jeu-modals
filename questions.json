@@ -2,307 +2,84 @@
   "easy": [
     {
       "q": "The train is late; they ___ be delayed by the storm.",
-      "choices": [
-        "must",
-        "might",
-        "should"
-      ],
-      "a": 1,
-      "sector": "Transport"
+      "choices": ["must", "might", "should"],
+      "a": 1
     },
     {
-      "q": "Guests ___ check out by 11 AM according to hotel policy.",
-      "choices": [
-        "must",
-        "might",
-        "could"
-      ],
-      "a": 0,
-      "sector": "Accommodation"
+      "q": "Guests ___ check out by 11 AM.",
+      "choices": ["must", "might", "could"],
+      "a": 0
     },
     {
       "q": "You ___ try the chef's special — it's excellent.",
-      "choices": [
-        "should",
-        "might",
-        "can"
-      ],
-      "a": 0,
-      "sector": "Food"
+      "choices": ["should", "might", "can"],
+      "a": 0
     },
     {
-      "q": "If the show is full, you ___ book the next available time.",
-      "choices": [
-        "must",
-        "should",
-        "might"
-      ],
-      "a": 1,
-      "sector": "Entertainment"
+      "q": "A tourist is looking for the information desk. He ___ be looking for the big blue sign.",
+      "choices": ["must", "might", "can't"],
+      "a": 0
     },
     {
-      "q": "For payment, you ___ use cash or card at reception.",
-      "choices": [
-        "can",
-        "must",
-        "should"
-      ],
-      "a": 0,
-      "sector": "Travel services"
-    },
-    {
-      "q": "He ___ have taken the wrong bus; he isn't here yet.",
-      "choices": [
-        "must",
-        "might",
-        "could"
-      ],
-      "a": 1,
-      "sector": "Transport"
-    },
-    {
-      "q": "They ___ be in the restaurant — I just heard someone at the table next to them.",
-      "choices": [
-        "must",
-        "might",
-        "should"
-      ],
-      "a": 1,
-      "sector": "Food"
-    },
-    {
-      "q": "You ___ ask the concierge for a taxi — it's a free service.",
-      "choices": [
-        "should",
-        "could",
-        "must"
-      ],
-      "a": 1,
-      "sector": "Accommodation"
-    },
-    {
-      "q": "The hotel lights are on; they ___ be awake.",
-      "choices": [
-        "must",
-        "can't",
-        "might"
-      ],
-      "a": 2,
-      "sector": "Accommodation"
-    },
-    {
-      "q": "It looks cloudy — the tour ___ be cancelled.",
-      "choices": [
-        "must",
-        "might",
-        "should"
-      ],
-      "a": 1,
-      "sector": "Entertainment"
+      "q": "The museum is unusually empty today. It ___ because of the weather forecast.",
+      "choices": ["must be", "might be", "can't be"],
+      "a": 1
     }
   ],
+
   "medium": [
     {
       "q": "The tour guide didn't show up; he ___ have missed his flight.",
-      "choices": [
-        "must",
-        "might",
-        "should"
-      ],
-      "a": 0,
-      "sector": "Transport"
+      "choices": ["must", "might", "should"],
+      "a": 0
     },
     {
       "q": "They ___ have eaten already — the plates are empty.",
-      "choices": [
-        "must",
-        "could",
-        "might"
-      ],
-      "a": 0,
-      "sector": "Food"
+      "choices": ["must", "could", "might"],
+      "a": 0
     },
     {
-      "q": "You ___ have been given late notice about the event.",
-      "choices": [
-        "may",
-        "must",
-        "might"
-      ],
-      "a": 0,
-      "sector": "Entertainment"
+      "q": "The ferry is rocking a lot today. It ___ because of strong winds.",
+      "choices": ["must be", "might be", "can't be"],
+      "a": 1
     },
     {
-      "q": "The luggage is missing; it ___ have been left on the bus.",
-      "choices": [
-        "must",
-        "could",
-        "should"
-      ],
-      "a": 1,
-      "sector": "Transport"
+      "q": "The restaurant has a line outside. It ___ very popular.",
+      "choices": ["must be", "might be", "can't be"],
+      "a": 0
     },
     {
-      "q": "They ___ not have checked the schedule properly.",
-      "choices": [
-        "might",
-        "must",
-        "could"
-      ],
-      "a": 0,
-      "sector": "Transport"
-    },
-    {
-      "q": "She ___ have been promoted — she wears a manager's badge.",
-      "choices": [
-        "must",
-        "might",
-        "could"
-      ],
-      "a": 0,
-      "sector": "Travel services"
-    },
-    {
-      "q": "If the kitchen was closed, you ___ have been told during check-in.",
-      "choices": [
-        "should",
-        "must",
-        "might"
-      ],
-      "a": 0,
-      "sector": "Accommodation"
-    },
-    {
-      "q": "He says he paid, but he ___ be lying.",
-      "choices": [
-        "might",
-        "must",
-        "could"
-      ],
-      "a": 2,
-      "sector": "Travel services"
-    },
-    {
-      "q": "The show is late — they ___ have had technical issues.",
-      "choices": [
-        "must",
-        "might",
-        "should"
-      ],
-      "a": 1,
-      "sector": "Entertainment"
-    },
-    {
-      "q": "You ___ have asked for a room with a view when booking.",
-      "choices": [
-        "should",
-        "must",
-        "could"
-      ],
-      "a": 0,
-      "sector": "Accommodation"
+      "q": "Your hotel room is colder than expected. The AC ___ be set too low.",
+      "choices": ["must", "might", "should"],
+      "a": 0
     }
   ],
+
   "hard": [
     {
-      "q": "By the time we arrived, the restaurant ___ have closed — there were no lights.",
-      "choices": [
-        "must",
-        "might",
-        "could"
-      ],
-      "a": 0,
-      "sector": "Food"
+      "q": "The waitress forgot your order. She ___ your table number.",
+      "choices": ["must have confused", "can't have seen", "should have known"],
+      "a": 0
     },
     {
-      "q": "He ___ have taken a later train — his message said 'on my way'.",
-      "choices": [
-        "may",
-        "must",
-        "might"
-      ],
-      "a": 0,
-      "sector": "Transport"
+      "q": "The passengers arrived late. They ___ the boarding announcement.",
+      "choices": ["must have missed", "can't have heard", "might have cancelled"],
+      "a": 0
     },
     {
-      "q": "The brochure is inaccurate; the company ___ have changed the itinerary without notice.",
-      "choices": [
-        "must",
-        "might",
-        "should"
-      ],
-      "a": 1,
-      "sector": "Travel services"
+      "q": "The museum was closed early. They ___ had an emergency.",
+      "choices": ["must have", "might have", "can't have"],
+      "a": 0
     },
     {
-      "q": "If she had left earlier, she ___ have caught the ferry.",
-      "choices": [
-        "would",
-        "could",
-        "might"
-      ],
-      "a": 0,
-      "sector": "Transport"
+      "q": "The tour guide didn’t show up. He ___ gotten the time wrong.",
+      "choices": ["must have", "might have", "can't have"],
+      "a": 1
     },
     {
-      "q": "They ___ have offered a refund if they knew it was double-booked.",
-      "choices": [
-        "might",
-        "must",
-        "would"
-      ],
-      "a": 2,
-      "sector": "Accommodation"
-    },
-    {
-      "q": "Judging by the footprints, someone ___ have entered the room after housekeeping.",
-      "choices": [
-        "must",
-        "might",
-        "could"
-      ],
-      "a": 0,
-      "sector": "Accommodation"
-    },
-    {
-      "q": "From the sounds, the guests ___ have been enjoying the live music.",
-      "choices": [
-        "must",
-        "might",
-        "could"
-      ],
-      "a": 1,
-      "sector": "Entertainment"
-    },
-    {
-      "q": "They say the company is reliable; that ___ be true — I've seen many complaints.",
-      "choices": [
-        "must",
-        "may",
-        "can't"
-      ],
-      "a": 2,
-      "sector": "Travel services"
-    },
-    {
-      "q": "Had they known about the strike, they ___ have postponed the trip.",
-      "choices": [
-        "could",
-        "would",
-        "might"
-      ],
-      "a": 1,
-      "sector": "Transport"
-    },
-    {
-      "q": "The porter said he ___ have seen the package, but he's unsure.",
-      "choices": [
-        "might",
-        "must",
-        "could"
-      ],
-      "a": 0,
-      "sector": "Travel services"
+      "q": "The hotel lobby smells like smoke. Someone ___ smoking outside.",
+      "choices": ["must be", "might be", "can't be"],
+      "a": 1
     }
   ]
 }
