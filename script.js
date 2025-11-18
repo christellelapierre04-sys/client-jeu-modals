@@ -289,6 +289,18 @@ socket.on("game-finished", (ranking) => {
     podium.appendChild(div);
   });
 });
+/* ================================
+   Lancement automatique de la musique
+   ================================ */
+window.addEventListener("load", () => {
+  if (bgMusic) {
+    bgMusic.volume = 0.4;
+    bgMusic.play().catch(() => {
+      console.log("Autoplay bloqué — l'utilisateur doit cliquer une fois");
+    });
+  }
+});
+
 
 /* ================================
    Retour au lobby
