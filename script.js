@@ -71,6 +71,21 @@ async function loadQuestions() {
   const res = await fetch("questions.json");
   questionBank = await res.json();
 }
+/* ================================
+   MODE DÉMO – sélection d'une question
+   ================================ */
+function askQuestion() {
+  if (!questionBank) return;
+
+  const levelQuestions = questionBank[currentLevel] || questionBank["easy"];
+
+  if (!levelQuestions || levelQuestions.length === 0) return;
+
+  const randomIndex = Math.floor(Math.random() * levelQuestions.length);
+  const question = levelQuestions[randomIndex];
+
+  showQuestion(question);
+}
 
 /* ================================
    TIMER
