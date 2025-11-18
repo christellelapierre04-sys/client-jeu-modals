@@ -68,9 +68,21 @@ muteBtn.addEventListener("click", () => {
    Chargement des questions JSON
    ================================ */
 async function loadQuestions() {
-  const res = await fetch("questions.json");
-  questionBank = await res.json();
+  try {
+    const res = await fetch("./questions.json");
+    if (!res.ok) {
+      console.error("Erreur de chargement JSON :", res.status);
+      return;
+    }
+
+    questionBank = await res.json();
+    console.log("Questions chargées :", questionBank);
+
+  } catch (err) {
+    console.error("Erreur lecture JSON :", err);
+  }
 }
+
 /* ================================
    MODE DÉMO – sélection d'une question
    ================================ */
@@ -166,11 +178,13 @@ socket.on("room-joined", ({ room, name }) => {
    Mode démo (solo)
    ================================ */
 demoBtn.addEventListener("click", async () => {
+  isDemo = true;
   await loadQuestions();
   setupPlayerLanes(["Démo"]);
   askQuestion();
   showGame();
 });
+
 
 /* ================================
    Liste des joueurs
@@ -208,6 +222,7 @@ socket.on("new-question", (data) => {
    ================================ */
 function showQuestion(question) {
   timeLeft = 30;
+  currentQuestion = question; // mémorise la question actuelle
   questionText.textContent = question.q;
   choicesDiv.innerHTML = "";
   usedBoost = false;
@@ -228,12 +243,34 @@ function showQuestion(question) {
 function sendAnswer(answerIndex) {
   clearInterval(interval);
 
-  socket.emit("answer", {
-    room: currentRoom,
-    name: currentPlayer,
-    answer: answerIndex,
-  });
+  if (isDemo) {
+    // En mode démo : simple feedback + question suivante
+    if (currentQuestion && typeof currentQuestion.correct === "number") {
+      const bonne = (answerIndex === currentQuestion.correct);
+      if (bonne) {
+        alert("Bonne réponse !");
+      } else if (answerIndex !== null) {
+        alert("Ce n'était pas la bonne réponse.");
+      } else {
+        alert("Temps écoulé !");
+      }
+    }
+
+    // Enchaîne avec une autre question
+    setTimeout(() => {
+      askQuestion();
+    }, 400);
+
+  } else {
+    // Mode multijoueur : on envoie au serveur
+    socket.emit("answer", {
+      room: currentRoom,
+      name: currentPlayer,
+      answer: answerIndex,
+    });
+  }
 }
+
 
 /* ================================
    Progression joueurs sur la piste
