@@ -1,41 +1,346 @@
+/* ================================
+   STYLE GLOBAL — Thème Voyage
+   Cartoon épuré + carte du monde
+   ================================ */
 
-:root{
-  --bg:#f6fafb;
-  --card:#ffffff;
-  --accent:#2b6cb0;
-  --accent-2:#f59e0b;
-  --muted:#6b7280;
-  --success:#16a34a;
-  --danger:#ef4444;
+:root {
+  --blue: #1E88E5;
+  --teal: #0097A7;
+  --green: #43A047;
+  --sand: #F1D9A9;
+  --terra: #C96F34;
+  --muted: #6b7280;
+  --card: #ffffff;
+  --shadow: rgba(11, 55, 95, 0.06);
+  --radius: 12px;
+  --speed: cubic-bezier(.2, .9, .3, 1);
 }
-*{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
-body{margin:0;background:linear-gradient(180deg,#e6f7ff 0%,var(--bg) 100%);min-height:100vh;color:#0f172a}
-.container{max-width:1000px;margin:18px auto;padding:16px}
-.topbar{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:10px;background:var(--card);box-shadow:0 6px 18px rgba(11,55,95,0.06)}
-.brand{font-weight:700;color:var(--accent)}
-.controls button{padding:8px 10px;border-radius:8px;border:1px solid rgba(15,23,42,0.06);background:transparent}
-.card{background:var(--card);padding:14px;margin-top:14px;border-radius:12px;box-shadow:0 6px 30px rgba(2,6,23,0.03)}
-.flex-row{display:flex;gap:12px;align-items:center}
-.panel{flex:1}
-.primary{background:var(--accent);color:white;padding:10px 12px;border-radius:9px;border:0;cursor:pointer}
-.secondary{background:transparent;border:1px solid rgba(15,23,42,0.06);padding:8px 10px;border-radius:9px}
-.small{padding:8px}
-.muted{color:var(--muted);font-size:13px}
-.players{list-style:none;padding:0;margin:0}
-.players li{padding:6px 8px;border-radius:8px;border:1px dashed rgba(15,23,42,0.04);display:flex;justify-content:space-between;align-items:center}
-.track{margin-top:12px;background:linear-gradient(90deg,#e2f8ff,#fff);padding:12px;border-radius:10px}
-.player-lane{display:flex;align-items:center;gap:12px;margin-bottom:8px}
-.player-dot{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;box-shadow:0 6px 18px rgba(11,55,95,0.06);font-weight:700}
-.progress-bar{flex:1;height:14px;background:#eef2ff;border-radius:20px;position:relative;overflow:hidden}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0%}
-.question-card{margin-top:14px}
-.question-text{font-weight:700;margin-top:8px}
-.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
-.choices button{padding:10px;border-radius:10px;border:1px solid rgba(15,23,42,0.06);background:linear-gradient(180deg,#fff,#f8fafc);cursor:pointer;text-align:left}
-.hidden{display:none}
-.game-header{display:flex;justify-content:space-between;align-items:center}
-.accent{background:var(--accent-2);color:#111;padding:8px 10px;border-radius:8px;border:0}
-.footer{margin-top:18px;text-align:center;color:var(--muted)}
-.podium{display:flex;justify-content:center;gap:18px;align-items:end;margin-top:12px}
-.podium .slot{width:130px;border-radius:8px;padding:10px 8px;background:linear-gradient(180deg,#fff,#fff1cc);box-shadow:0 8px 20px rgba(11,55,95,0.06);text-align:center}
-.hidden{display:none}
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #e2f2ff 0%, #f5fafc 100%);
+  height: 100%;
+}
+
+
+/* ================================
+   WRAPPER
+   ================================ */
+
+.app {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+
+/* ================================
+   TOPBAR — En-tête
+   ================================ */
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card);
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 22px var(--shadow);
+}
+
+.brand {
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--blue);
+}
+
+#muteBtn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+
+/* ================================
+   CARTES GÉNÉRALES
+   ================================ */
+
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), var(--card));
+  padding: 16px;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 26px var(--shadow);
+}
+
+.card.small {
+  padding: 10px;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+
+/* ================================
+   LAYOUT : LOBBY
+   ================================ */
+
+.main {
+  display: grid;
+  gap: 16px;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.col {
+  flex: 1;
+}
+
+input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #d0d7df;
+  margin-bottom: 6px;
+}
+
+
+/* ================================
+   BOUTONS
+   ================================ */
+
+.primary {
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--blue);
+  color: white;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(30,136,229,0.18);
+  transition: transform .15s var(--speed);
+}
+
+.primary:hover {
+  transform: translateY(-2px);
+}
+
+.secondary {
+  padding: 10px;
+  background: transparent;
+  border: 1px solid #c7d0da;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.accent {
+  padding: 8px 12px;
+  background: #FFB74D;
+  color: #222;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+/* ================================
+   LISTE DES JOUEURS
+   ================================ */
+
+.players {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.players li {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px dashed rgba(20,20,20,0.08);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+
+/* ================================
+   SECTION DE COURSE (track)
+   ================================ */
+
+.track {
+  margin-top: 12px;
+  background: rgba(255,255,255,0.45);
+  padding: 12px;
+  border-radius: var(--radius);
+  min-height: 160px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* fond carte du monde cartoon */
+.track::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">\
+<rect width="1600" height="900" fill="%231E88E5"/>\
+<g fill="%23ffffff" opacity="0.1">\
+<circle cx="400" cy="220" r="140"/>\
+<circle cx="900" cy="280" r="200"/>\
+<circle cx="1300" cy="200" r="160"/>\
+</g>\
+<g fill="%23003440" opacity="0.07">\
+<path d="M80 500 q200 -260 420 0 q200 260 420 0 q180 -180 580 0 v300 h-1420z"/>\
+</g>\
+</svg>');
+  background-size: cover;
+  filter: blur(3px) saturate(1.05);
+  transform: scale(1.03);
+  z-index: 0;
+  border-radius: 10px;
+}
+
+
+/* couloirs de joueurs */
+
+.player-lane {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.player-dot {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--card);
+  box-shadow: 0 6px 18px var(--shadow);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 18px;
+  background: linear-gradient(90deg, #eef6ff, #ffffff);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--terra));
+  width: 0%;
+  transition: width .6s var(--speed);
+}
+
+
+/* ================================
+   QUESTIONS
+   ================================ */
+
+.question-card {
+  margin-top: 14px;
+}
+
+.question-text {
+  font-weight: 800;
+  font-size: 20px;
+  margin-top: 8px;
+  color: #0f172a;
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.choices button {
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(180deg, #fff, #f8fbff);
+  box-shadow: 0 6px 18px var(--shadow);
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform .15s var(--speed);
+}
+
+.choices button:hover {
+  transform: translateY(-3px);
+}
+
+
+/* ================================
+   PODIUM
+   ================================ */
+
+.podium {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  align-items: end;
+  margin-top: 18px;
+}
+
+.podium .slot {
+  width: 140px;
+  padding: 14px;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, #fff, #fff1cc);
+  text-align: center;
+  box-shadow: 0 12px 30px var(--shadow);
+}
+
+
+/* ================================
+   FOOTER
+   ================================ */
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  color: var(--muted);
+}
+
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: 760px) {
+  .row {
+    flex-direction: column;
+  }
+  .choices {
+    grid-template-columns: 1fr;
+  }
+}
+
