@@ -88,11 +88,15 @@
 
   </div>
 
-  <audio id="bgMusic" loop>
-    <source src="musique.mp3" type="audio/mpeg" />
-  </audio>
+    <audio id="bgMusic" loop>
+      <source src="musique.mp3" type="audio/mpeg" />
+    </audio>
 
-  <script src="script.js"></script>
-</body>
+    <!-- Socket.IO client – doit être chargé AVANT script.js -->
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"
+            crossorigin="anonymous"></script>
+
+    <!-- Ton script principal -->
+    <script src="script.js"></script>
+  </body>
 </html>
-
